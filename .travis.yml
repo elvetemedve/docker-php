@@ -14,6 +14,7 @@ matrix:
 
 script:
   - set -e
+  - find . -type f ! -path "./.git/*" -and \( -name "*.sh" -or -perm -0111 \) -exec shellcheck --exclude=SC1008,SC1091 {} +
   - ./build.sh
   - ./test.sh
 
